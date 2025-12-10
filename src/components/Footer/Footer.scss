@@ -1,0 +1,150 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+
+  &__main {
+    @include container;
+    padding: $spacing-4xl $spacing-lg;
+    display: grid;
+    gap: $spacing-3xl;
+    
+    @include md {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: $spacing-2xl;
+    }
+  }
+
+  &__brand {
+    @include flex-column;
+    gap: $spacing-md;
+    max-width: 300px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    text-decoration: none;
+    
+    &-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gradient-primary);
+      border-radius: $radius-md;
+      @include flex-center;
+      
+      svg {
+        width: 20px;
+        height: 20px;
+        color: white;
+      }
+    }
+
+    &-text {
+      font-family: var(--font-heading);
+      font-size: $font-size-lg;
+      font-weight: 700;
+      color: var(--text-color);
+      
+      span {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-sm;
+    margin-top: $spacing-sm;
+  }
+
+  &__social-link {
+    width: 36px;
+    height: 36px;
+    @include flex-center;
+    background: var(--bg-tertiary);
+    border-radius: $radius-md;
+    color: var(--text-muted);
+    transition: all $transition-fast;
+
+    &:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__column {
+    @include flex-column;
+    gap: $spacing-md;
+  }
+
+  &__title {
+    font-family: var(--font-heading);
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__links {
+    @include flex-column;
+    gap: $spacing-sm;
+  }
+
+  &__link {
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &__bottom {
+    @include container;
+    padding: $spacing-lg;
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    border-top: 1px solid var(--border-color);
+  }
+
+  &__copyright {
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+  }
+
+  &__legal {
+    display: flex;
+    gap: $spacing-lg;
+  }
+
+  &__legal-link {
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}

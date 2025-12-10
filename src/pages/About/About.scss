@@ -1,0 +1,272 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.about {
+  padding-top: 72px;
+
+  &__hero {
+    @include section-padding;
+    background: var(--bg-secondary);
+    text-align: center;
+
+    &-container {
+      @include container;
+    }
+
+    &-tag {
+      display: inline-block;
+      font-size: $font-size-sm;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: $spacing-md;
+    }
+
+    &-title {
+      @include heading($font-size-4xl);
+      margin-bottom: $spacing-lg;
+
+      @include md {
+        font-size: $font-size-5xl;
+      }
+    }
+
+    &-subtitle {
+      color: var(--text-muted);
+      font-size: $font-size-lg;
+      max-width: 700px;
+      margin: 0 auto;
+
+      @include md {
+        font-size: $font-size-xl;
+      }
+    }
+  }
+
+  &__content {
+    @include section-padding;
+
+    &-container {
+      @include container;
+      display: grid;
+      gap: $spacing-4xl;
+
+      @include lg {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+  }
+
+  &__bio {
+    &-section {
+      margin-bottom: $spacing-3xl;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &-title {
+      @include heading($font-size-xl);
+      margin-bottom: $spacing-md;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+
+      svg {
+        color: var(--primary-color);
+      }
+    }
+
+    &-text {
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: $font-size-base;
+
+      strong {
+        color: var(--text-color);
+      }
+    }
+
+    &-list {
+      margin-top: $spacing-md;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+
+    &-item {
+      display: flex;
+      align-items: flex-start;
+      gap: $spacing-sm;
+      color: var(--text-muted);
+      font-size: $font-size-sm;
+
+      svg {
+        flex-shrink: 0;
+        margin-top: 2px;
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  &__sidebar {
+    @include lg {
+      position: sticky;
+      top: 100px;
+    }
+  }
+
+  &__profile-card {
+    @include card;
+    text-align: center;
+    padding: $spacing-2xl;
+    margin-bottom: $spacing-xl;
+
+    &-avatar {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto $spacing-lg;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      @include flex-center;
+      font-size: $font-size-4xl;
+      font-weight: 700;
+      color: white;
+      font-family: var(--font-heading);
+    }
+
+    &-name {
+      @include heading($font-size-2xl);
+      margin-bottom: $spacing-xs;
+    }
+
+    &-title {
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-bottom: $spacing-md;
+    }
+
+    &-location {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-xs;
+      color: var(--text-muted);
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-lg;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  &__languages {
+    @include card;
+    padding: $spacing-xl;
+
+    &-title {
+      @include heading($font-size-lg);
+      margin-bottom: $spacing-lg;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+
+      svg {
+        color: var(--primary-color);
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+    }
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-name {
+      font-weight: 500;
+      color: var(--text-color);
+    }
+
+    &-level {
+      font-size: $font-size-sm;
+      color: var(--text-muted);
+    }
+  }
+
+  &__values {
+    @include section-padding;
+    background: var(--bg-secondary);
+
+    &-header {
+      text-align: center;
+      margin-bottom: $spacing-3xl;
+    }
+
+    &-tag {
+      display: inline-block;
+      font-size: $font-size-sm;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: $spacing-md;
+    }
+
+    &-title {
+      @include heading($font-size-3xl);
+    }
+
+    &-grid {
+      @include container;
+      display: grid;
+      gap: $spacing-lg;
+
+      @include md {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    &-card {
+      @include card;
+      text-align: center;
+      padding: $spacing-2xl;
+
+      &-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto $spacing-md;
+        background: var(--gradient-primary);
+        border-radius: $radius-lg;
+        @include flex-center;
+
+        svg {
+          width: 28px;
+          height: 28px;
+          color: white;
+        }
+      }
+
+      &-title {
+        @include heading($font-size-lg);
+        margin-bottom: $spacing-sm;
+      }
+
+      &-desc {
+        color: var(--text-muted);
+        font-size: $font-size-sm;
+        line-height: 1.7;
+      }
+    }
+  }
+}

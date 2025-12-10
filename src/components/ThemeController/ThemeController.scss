@@ -1,0 +1,125 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.theme-controller {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  &__button {
+    @include button-ghost;
+    padding: $spacing-sm;
+    border-radius: $radius-md;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    &--active {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      color: white;
+
+      &:hover {
+        background: var(--primary-light);
+        border-color: var(--primary-light);
+        color: white;
+      }
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+  }
+
+  &__menu {
+    position: absolute;
+    top: calc(100% + $spacing-sm);
+    right: 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-lg;
+    padding: $spacing-sm;
+    min-width: 200px;
+    box-shadow: $shadow-xl;
+    z-index: $z-dropdown;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all $transition-base;
+
+    &--open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  &__menu-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: background $transition-fast;
+    color: var(--text-muted);
+    font-size: $font-size-sm;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+
+    &:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-color);
+    }
+
+    &--active {
+      background: var(--bg-tertiary);
+      color: var(--primary-color);
+
+      svg {
+        color: var(--primary-color);
+      }
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__label {
+    font-size: $font-size-xs;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: $spacing-sm $spacing-md;
+    margin-top: $spacing-sm;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: $spacing-sm 0;
+  }
+}

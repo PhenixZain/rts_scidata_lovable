@@ -1,0 +1,215 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.research {
+  padding-top: 72px;
+
+  &__hero {
+    @include section-padding;
+    background: var(--bg-secondary);
+    text-align: center;
+
+    &-container {
+      @include container;
+    }
+
+    &-tag {
+      display: inline-block;
+      font-size: $font-size-sm;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: $spacing-md;
+    }
+
+    &-title {
+      @include heading($font-size-4xl);
+      margin-bottom: $spacing-lg;
+
+      @include md {
+        font-size: $font-size-5xl;
+      }
+    }
+
+    &-subtitle {
+      color: var(--text-muted);
+      font-size: $font-size-lg;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  &__papers {
+    @include section-padding;
+
+    &-container {
+      @include container;
+    }
+
+    &-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto $spacing-3xl;
+    }
+
+    &-intro-title {
+      @include heading($font-size-2xl);
+      margin-bottom: $spacing-md;
+    }
+
+    &-intro-text {
+      color: var(--text-muted);
+      font-size: $font-size-base;
+      line-height: 1.7;
+    }
+
+    &-grid {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xl;
+    }
+  }
+
+  &__paper {
+    @include card;
+    @include card-hover;
+    display: grid;
+    gap: $spacing-xl;
+
+    @include md {
+      grid-template-columns: 80px 1fr;
+    }
+
+    &-number {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: $radius-xl;
+      @include flex-center;
+      font-family: var(--font-heading);
+      font-size: $font-size-2xl;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    &-content {
+      flex: 1;
+    }
+
+    &-title {
+      @include heading($font-size-xl);
+      margin-bottom: $spacing-sm;
+
+      @include md {
+        font-size: $font-size-2xl;
+      }
+    }
+
+    &-field {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-xs;
+      font-size: $font-size-sm;
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-bottom: $spacing-md;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &-summary {
+      color: var(--text-muted);
+      font-size: $font-size-base;
+      line-height: 1.8;
+      margin-bottom: $spacing-md;
+    }
+
+    &-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-xs;
+    }
+
+    &-highlight {
+      font-size: $font-size-xs;
+      background: var(--bg-tertiary);
+      color: var(--text-muted);
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__expertise {
+    @include section-padding;
+    background: var(--bg-secondary);
+
+    &-header {
+      text-align: center;
+      margin-bottom: $spacing-3xl;
+    }
+
+    &-tag {
+      display: inline-block;
+      font-size: $font-size-sm;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: $spacing-md;
+    }
+
+    &-title {
+      @include heading($font-size-3xl);
+    }
+
+    &-grid {
+      @include container;
+      display: grid;
+      gap: $spacing-lg;
+
+      @include md {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include lg {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &-card {
+      @include card;
+      text-align: center;
+      padding: $spacing-xl;
+
+      &-icon {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto $spacing-md;
+        background: var(--bg-tertiary);
+        border-radius: $radius-lg;
+        @include flex-center;
+
+        svg {
+          width: 28px;
+          height: 28px;
+          color: var(--primary-color);
+        }
+      }
+
+      &-title {
+        @include heading($font-size-base);
+        margin-bottom: $spacing-xs;
+      }
+
+      &-desc {
+        color: var(--text-muted);
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}

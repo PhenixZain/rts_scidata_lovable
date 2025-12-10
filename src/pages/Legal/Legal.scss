@@ -1,0 +1,139 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.legal {
+  padding-top: 72px;
+
+  &__hero {
+    @include section-padding;
+    background: var(--bg-secondary);
+    text-align: center;
+    padding-bottom: $spacing-2xl;
+
+    &-container {
+      @include container;
+    }
+
+    &-title {
+      @include heading($font-size-3xl);
+      margin-bottom: $spacing-md;
+
+      @include md {
+        font-size: $font-size-4xl;
+      }
+    }
+
+    &-updated {
+      color: var(--text-muted);
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__content {
+    @include section-padding;
+    padding-top: $spacing-2xl;
+
+    &-container {
+      @include container;
+      max-width: 800px;
+    }
+  }
+
+  &__section {
+    margin-bottom: $spacing-3xl;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__heading {
+    @include heading($font-size-xl);
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-sm;
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  &__text {
+    color: var(--text-muted);
+    font-size: $font-size-base;
+    line-height: 1.8;
+    margin-bottom: $spacing-md;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--text-color);
+    }
+  }
+
+  &__list {
+    margin: $spacing-md 0;
+    padding-left: $spacing-xl;
+
+    li {
+      color: var(--text-muted);
+      font-size: $font-size-base;
+      line-height: 1.8;
+      margin-bottom: $spacing-sm;
+      position: relative;
+
+      &::before {
+        content: '•';
+        color: var(--primary-color);
+        position: absolute;
+        left: -$spacing-md;
+      }
+    }
+  }
+
+  &__highlight {
+    @include card;
+    padding: $spacing-xl;
+    margin: $spacing-xl 0;
+    border-left: 4px solid var(--primary-color);
+
+    &-title {
+      @include heading($font-size-lg);
+      margin-bottom: $spacing-sm;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+
+      svg {
+        color: var(--primary-color);
+      }
+    }
+
+    &-text {
+      color: var(--text-muted);
+      font-size: $font-size-sm;
+      line-height: 1.7;
+    }
+  }
+
+  &__contact {
+    @include card;
+    padding: $spacing-xl;
+    margin-top: $spacing-2xl;
+    text-align: center;
+
+    &-title {
+      @include heading($font-size-lg);
+      margin-bottom: $spacing-md;
+    }
+
+    &-text {
+      color: var(--text-muted);
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-md;
+    }
+
+    &-email {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+  }
+}
