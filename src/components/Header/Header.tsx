@@ -2,25 +2,28 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Database, Menu, X } from 'lucide-react';
 import ThemeController from '../ThemeController/ThemeController';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import { useLanguage } from '../../context/LanguageContext';
 import './Header.scss';
 
 interface NavItem {
-  label: string;
+  labelKey: keyof typeof import('../../i18n/translations/en').en.nav;
   path: string;
 }
 
 const navItems: NavItem[] = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Services', path: '/services' },
-  { label: 'Portfolio', path: '/portfolio' },
-  { label: 'Research', path: '/research' },
-  { label: 'Blog', path: '/blog' },
+  { labelKey: 'home', path: '/' },
+  { labelKey: 'about', path: '/about' },
+  { labelKey: 'services', path: '/services' },
+  { labelKey: 'portfolio', path: '/portfolio' },
+  { labelKey: 'research', path: '/research' },
+  { labelKey: 'blog', path: '/blog' },
 ];
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -43,15 +46,16 @@ const Header: React.FC = () => {
               to={item.path}
               className={`header__link ${isActive(item.path) ? 'header__link--active' : ''}`}
             >
-              {item.label}
+              {t.nav[item.labelKey]}
             </Link>
           ))}
         </nav>
 
         <div className="header__actions">
+          <LanguageSelector />
           <ThemeController />
           <Link to="/contact" className="header__cta">
-            Contact Me
+            {t.nav.contact}
           </Link>
           <button
             className="header__mobile-toggle"
@@ -71,7 +75,7 @@ const Header: React.FC = () => {
             className={`header__mobile-link ${isActive(item.path) ? 'header__mobile-link--active' : ''}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            {item.label}
+            {t.nav[item.labelKey]}
           </Link>
         ))}
         <Link
@@ -79,7 +83,7 @@ const Header: React.FC = () => {
           className="header__mobile-cta"
           onClick={() => setIsMobileMenuOpen(false)}
         >
-          Contact Me
+          {t.nav.contact}
         </Link>
       </nav>
     </header>
