@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
+import { LanguageProvider } from "./context/LanguageContext";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
@@ -15,7 +16,8 @@ import DataConfidentiality from "./pages/Legal/DataConfidentiality";
 import "./styles/global.scss";
 
 const App = () => (
-  <ThemeProvider>
+  <LanguageProvider>
+    <ThemeProvider>
     <BrowserRouter>
       <Header />
       <Routes>
@@ -33,6 +35,7 @@ const App = () => (
       <Footer />
     </BrowserRouter>
   </ThemeProvider>
+  </LanguageProvider>
 );
 
 export default App;
