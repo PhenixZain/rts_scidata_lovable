@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { 
   Beaker, 
   Database, 
@@ -8,10 +9,7 @@ import {
   Code2, 
   FileSpreadsheet, 
   Microscope,
-  Zap,
-  Shield,
-  Award,
-  Globe
+  Award
 } from 'lucide-react';
 import './Home.scss';
 
@@ -30,41 +28,11 @@ const technologies = [
   { name: 'Automation', icon: 'Au' },
 ];
 
-const strengths = [
-  {
-    icon: Beaker,
-    title: 'Chemistry Expertise',
-    description: '20+ years in organometallics, electrochemistry, and photochemistry research with deep domain knowledge.'
-  },
-  {
-    icon: Database,
-    title: 'Data Engineering',
-    description: 'Expert ETL pipelines, data cleaning, validation, and management for complex scientific datasets.'
-  },
-  {
-    icon: BarChart3,
-    title: 'Advanced Analytics',
-    description: 'Statistical analysis, kinetics modeling, molecular handling with SMILES/RDKit for meaningful insights.'
-  },
-  {
-    icon: Code2,
-    title: 'Custom Solutions',
-    description: 'Python scripts, Streamlit apps, and ReactJS dashboards tailored to your specific research needs.'
-  },
-  {
-    icon: FileSpreadsheet,
-    title: 'Visualization',
-    description: 'Interactive Power BI dashboards and automated Excel reports that communicate results effectively.'
-  },
-  {
-    icon: Microscope,
-    title: 'Research Focus',
-    description: 'Scientific rigor ensuring accuracy, reproducibility, and confidentiality in every project.'
-  }
-];
+const strengthIcons = [Beaker, Database, BarChart3, Code2, FileSpreadsheet, Microscope];
 
 const Home: React.FC = () => {
   const { gradientMode } = useTheme();
+  const { t } = useLanguage();
   const gradientClass = gradientMode === 'animated' ? 'gradient-text-animated' : 'gradient-text-static';
 
   return (
@@ -75,45 +43,42 @@ const Home: React.FC = () => {
         <div className="home__hero-content">
           <div className="home__hero-badge">
             <Award />
-            <span>20+ Years of Scientific Excellence</span>
+            <span>{t.home.badge}</span>
           </div>
           
           <h1 className="home__hero-title">
-            Transform Your{' '}
-            <span className={gradientClass}>Scientific Data</span>
-            {' '}Into Actionable Insights
+            {t.home.heroTitle}{' '}
+            <span className={gradientClass}>{t.home.heroTitleHighlight}</span>
+            {' '}{t.home.heroTitleEnd}
           </h1>
           
-          <p className="home__hero-subtitle">
-            Expert data management, analysis, and automation services for research laboratories, 
-            pharma, biotech, and academic institutions. From raw data to publication-ready results.
-          </p>
+          <p className="home__hero-subtitle">{t.home.heroSubtitle}</p>
           
           <div className="home__hero-actions">
             <Link to="/services" className="home__hero-cta">
-              Explore Services
+              {t.home.exploreServices}
             </Link>
             <Link to="/contact" className="home__hero-secondary">
-              Get in Touch
+              {t.home.getInTouch}
             </Link>
           </div>
 
           <div className="home__hero-stats">
             <div className="home__hero-stat">
-              <div className="home__hero-stat-value">20+</div>
-              <div className="home__hero-stat-label">Years Experience</div>
+              <div className="home__hero-stat-value">{t.home.stats.experience.value}</div>
+              <div className="home__hero-stat-label">{t.home.stats.experience.label}</div>
             </div>
             <div className="home__hero-stat">
-              <div className="home__hero-stat-value">50+</div>
-              <div className="home__hero-stat-label">Projects Delivered</div>
+              <div className="home__hero-stat-value">{t.home.stats.projects.value}</div>
+              <div className="home__hero-stat-label">{t.home.stats.projects.label}</div>
             </div>
             <div className="home__hero-stat">
-              <div className="home__hero-stat-value">4</div>
-              <div className="home__hero-stat-label">Languages Spoken</div>
+              <div className="home__hero-stat-value">{t.home.stats.languages.value}</div>
+              <div className="home__hero-stat-label">{t.home.stats.languages.label}</div>
             </div>
             <div className="home__hero-stat">
-              <div className="home__hero-stat-value">100%</div>
-              <div className="home__hero-stat-label">Client Satisfaction</div>
+              <div className="home__hero-stat-value">{t.home.stats.satisfaction.value}</div>
+              <div className="home__hero-stat-label">{t.home.stats.satisfaction.label}</div>
             </div>
           </div>
         </div>
@@ -122,40 +87,33 @@ const Home: React.FC = () => {
       {/* Strengths Section */}
       <section className="home__strengths">
         <div className="home__section-header">
-          <span className="home__section-header-tag">Why Choose Me</span>
-          <h2 className="home__section-header-title">
-            Bridging Science and Data Technology
-          </h2>
-          <p className="home__section-header-desc">
-            A unique combination of deep scientific expertise and modern data engineering skills 
-            to deliver solutions that truly understand your research challenges.
-          </p>
+          <span className="home__section-header-tag">{t.home.strengthsTag}</span>
+          <h2 className="home__section-header-title">{t.home.strengthsTitle}</h2>
+          <p className="home__section-header-desc">{t.home.strengthsDesc}</p>
         </div>
 
         <div className="home__strengths-grid">
-          {strengths.map((strength, index) => (
-            <div className="home__strength-card" key={index}>
-              <div className="home__strength-card-icon">
-                <strength.icon />
+          {t.home.strengths.map((strength, index) => {
+            const Icon = strengthIcons[index];
+            return (
+              <div className="home__strength-card" key={index}>
+                <div className="home__strength-card-icon">
+                  <Icon />
+                </div>
+                <h3 className="home__strength-card-title">{strength.title}</h3>
+                <p className="home__strength-card-desc">{strength.description}</p>
               </div>
-              <h3 className="home__strength-card-title">{strength.title}</h3>
-              <p className="home__strength-card-desc">{strength.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
       {/* Technologies Section */}
       <section className="home__tech">
         <div className="home__section-header">
-          <span className="home__section-header-tag">Tech Stack</span>
-          <h2 className="home__section-header-title">
-            Technologies & Tools I Use
-          </h2>
-          <p className="home__section-header-desc">
-            Leveraging industry-standard and specialized tools to deliver robust, 
-            scalable scientific data solutions.
-          </p>
+          <span className="home__section-header-tag">{t.home.techTag}</span>
+          <h2 className="home__section-header-title">{t.home.techTitle}</h2>
+          <p className="home__section-header-desc">{t.home.techDesc}</p>
         </div>
 
         <div className="home__tech-grid">
@@ -171,15 +129,10 @@ const Home: React.FC = () => {
       {/* CTA Section */}
       <section className="home__cta">
         <div className="home__cta-container">
-          <h2 className="home__cta-title">
-            Ready to Unlock Your Data's Potential?
-          </h2>
-          <p className="home__cta-desc">
-            Let's discuss how I can help transform your scientific data challenges 
-            into streamlined, automated solutions.
-          </p>
+          <h2 className="home__cta-title">{t.home.ctaTitle}</h2>
+          <p className="home__cta-desc">{t.home.ctaDesc}</p>
           <Link to="/contact" className="home__cta-button">
-            Start a Conversation
+            {t.home.ctaButton}
           </Link>
         </div>
       </section>
