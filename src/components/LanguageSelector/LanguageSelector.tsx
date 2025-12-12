@@ -4,7 +4,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { Language, languageNames, languageFlags } from '../../i18n';
 import './LanguageSelector.scss';
 
-const languages: Language[] = ['en', 'fr', 'nl'];
+const languages: Language[] = ['en', 'fr', 'nl', 'ar'];
 
 const LanguageSelector: React.FC = () => {
   const { language, setLanguage } = useLanguage();
