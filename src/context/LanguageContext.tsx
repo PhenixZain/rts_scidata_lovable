@@ -12,7 +12,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const detectUserLanguage = (): Language => {
   // Check localStorage first
   const stored = localStorage.getItem('preferred-language');
-  if (stored && (stored === 'en' || stored === 'fr' || stored === 'nl')) {
+  if (stored && (stored === 'en' || stored === 'fr' || stored === 'nl'|| stored === 'ar')) {
     return stored as Language;
   }
 
@@ -21,6 +21,7 @@ const detectUserLanguage = (): Language => {
   
   if (browserLang.startsWith('fr')) return 'fr';
   if (browserLang.startsWith('nl')) return 'nl';
+  if (browserLang.startsWith('ar')) return 'ar';
   
   // Default to English
   return 'en';
