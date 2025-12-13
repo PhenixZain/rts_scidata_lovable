@@ -21,11 +21,14 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: $spacing-md;
+      animation: scaleIn 0.5s ease-out forwards;
     }
 
     &-title {
       @include heading($font-size-4xl);
       margin-bottom: $spacing-lg;
+      animation: fadeInUp 0.7s ease-out 0.2s forwards;
+      opacity: 0;
 
       @include md {
         font-size: $font-size-5xl;
@@ -37,9 +40,162 @@
       font-size: $font-size-lg;
       max-width: 700px;
       margin: 0 auto;
+      animation: fadeInUp 0.7s ease-out 0.6s forwards;
+      opacity: 0;
 
       @include md {
         font-size: $font-size-xl;
+      }
+    }
+  }
+
+  &__roles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__role-tag {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: var(--gradient-primary);
+    border-radius: 2rem;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    animation: bounceIn 0.5s ease-out forwards;
+    opacity: 0;
+
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{0.3 + $i * 0.08}s;
+      }
+    }
+  }
+
+  &__quotes {
+    @include section-padding;
+    background: var(--bg-color);
+
+    &-container {
+      @include container;
+      display: grid;
+      gap: $spacing-xl;
+      
+      @include md {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  &__quote {
+    position: relative;
+    padding: $spacing-xl $spacing-2xl;
+    background: var(--card-bg);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 $radius-lg $radius-lg 0;
+    margin: 0;
+    animation: fadeInLeft 0.6s ease-out forwards;
+    opacity: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    &:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    &-icon {
+      position: absolute;
+      top: $spacing-md;
+      left: $spacing-lg;
+      width: 32px;
+      height: 32px;
+      color: var(--primary-color);
+      opacity: 0.3;
+    }
+
+    p {
+      font-style: italic;
+      font-size: $font-size-lg;
+      line-height: 1.8;
+      color: var(--text-color);
+      margin: 0;
+      padding-left: $spacing-md;
+    }
+  }
+
+  &__skills-section {
+    @include section-padding;
+    background: var(--bg-secondary);
+  }
+
+  &__skills-container {
+    @include container;
+  }
+
+  &__skills-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xl;
+
+    h2 {
+      @include heading($font-size-2xl);
+      margin: 0;
+    }
+  }
+
+  &__skills-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--primary-color);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  &__skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-sm;
+  }
+
+  &__skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(var(--primary-rgb), 0.1);
+    border: 1px solid rgba(var(--primary-rgb), 0.3);
+    border-radius: 2rem;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    animation: scaleIn 0.4s ease-out forwards;
+    opacity: 0;
+
+    &:hover {
+      background: rgba(var(--primary-rgb), 0.2);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.2);
+    }
+
+    @for $i from 1 through 25 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.04}s;
       }
     }
   }
@@ -62,6 +218,14 @@
   &__bio {
     &-section {
       margin-bottom: $spacing-3xl;
+      animation: fadeInLeft 0.6s ease-out forwards;
+      opacity: 0;
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{0.1 + $i * 0.15}s;
+        }
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -113,6 +277,9 @@
   }
 
   &__sidebar {
+    animation: fadeInRight 0.7s ease-out 0.3s forwards;
+    opacity: 0;
+
     @include lg {
       position: sticky;
       top: 100px;
@@ -124,6 +291,12 @@
     text-align: center;
     padding: $spacing-2xl;
     margin-bottom: $spacing-xl;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
 
     &-avatar {
       width: 150px;
@@ -136,6 +309,8 @@
       font-weight: 700;
       color: white;
       font-family: var(--font-heading);
+      animation: pulse 3s ease-in-out infinite;
+      box-shadow: 0 0 30px rgba(var(--primary-rgb), 0.3);
     }
 
     &-name {
@@ -168,6 +343,11 @@
   &__languages {
     @include card;
     padding: $spacing-xl;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
 
     &-title {
       @include heading($font-size-lg);
@@ -191,6 +371,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: $spacing-xs 0;
+      border-bottom: 1px solid var(--border-color);
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
 
     &-name {
@@ -201,6 +387,9 @@
     &-level {
       font-size: $font-size-sm;
       color: var(--text-muted);
+      padding: 0.2rem 0.6rem;
+      background: rgba(var(--primary-rgb), 0.1);
+      border-radius: 1rem;
     }
   }
 
@@ -221,10 +410,13 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: $spacing-md;
+      animation: fadeInDown 0.5s ease-out forwards;
     }
 
     &-title {
       @include heading($font-size-3xl);
+      animation: fadeInUp 0.6s ease-out 0.2s forwards;
+      opacity: 0;
     }
 
     &-grid {
@@ -241,6 +433,20 @@
       @include card;
       text-align: center;
       padding: $spacing-2xl;
+      animation: bounceIn 0.6s ease-out forwards;
+      opacity: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{0.2 + $i * 0.1}s;
+        }
+      }
+
+      &:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
 
       &-icon {
         width: 60px;
@@ -249,12 +455,17 @@
         background: var(--gradient-primary);
         border-radius: $radius-lg;
         @include flex-center;
+        transition: transform 0.3s ease;
 
         svg {
           width: 28px;
           height: 28px;
           color: white;
         }
+      }
+
+      &:hover &-icon {
+        transform: scale(1.1) rotate(5deg);
       }
 
       &-title {
@@ -268,5 +479,89 @@
         line-height: 1.7;
       }
     }
+  }
+}
+
+// Animation keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.3);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(var(--primary-rgb), 0.5);
   }
 }
