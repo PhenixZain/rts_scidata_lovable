@@ -58,9 +58,16 @@ const About: React.FC = () => {
             <Sparkles className="about__skills-icon" />
             <h2>{t.about.skillsTitle}</h2>
           </div>
-          <div className="about__skills-grid">
-            {t.about.skills.map((skill, index) => (
-              <span className="about__skill-badge" key={index}>{skill}</span>
+          <div className="about__skills-categories">
+            {t.about.skillCategories.map((category, catIndex) => (
+              <div className="about__skill-category" key={catIndex}>
+                <h3 className="about__skill-category-title">{category.title}</h3>
+                <div className="about__skills-grid">
+                  {category.skills.map((skill, index) => (
+                    <span className="about__skill-badge" key={index}>{skill}</span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
