@@ -11,7 +11,9 @@ import {
   Shield,
   Target,
   Repeat,
-  Lock
+  Lock,
+  Quote,
+  Sparkles
 } from 'lucide-react';
 import './About.scss';
 
@@ -23,14 +25,44 @@ const About: React.FC = () => {
   const gradientClass = gradientMode === 'animated' ? 'gradient-text-animated' : 'gradient-text-static';
 
   return (
-    <main className="about">
+    <main className="about about-animate">
       <section className="about__hero">
         <div className="about__hero-container">
           <span className="about__hero-tag">{t.about.tag}</span>
           <h1 className="about__hero-title">
             <span className={gradientClass}>Zain Aldin</span>
           </h1>
+          <div className="about__roles">
+            {t.about.roles.map((role, index) => (
+              <span className="about__role-tag" key={index}>{role}</span>
+            ))}
+          </div>
           <p className="about__hero-subtitle">{t.about.heroSubtitle}</p>
+        </div>
+      </section>
+
+      <section className="about__quotes">
+        <div className="about__quotes-container">
+          {t.about.quotes.map((quote, index) => (
+            <blockquote className="about__quote" key={index}>
+              <Quote className="about__quote-icon" />
+              <p>{quote}</p>
+            </blockquote>
+          ))}
+        </div>
+      </section>
+
+      <section className="about__skills-section">
+        <div className="about__skills-container">
+          <div className="about__skills-header">
+            <Sparkles className="about__skills-icon" />
+            <h2>{t.about.skillsTitle}</h2>
+          </div>
+          <div className="about__skills-grid">
+            {t.about.skills.map((skill, index) => (
+              <span className="about__skill-badge" key={index}>{skill}</span>
+            ))}
+          </div>
         </div>
       </section>
 

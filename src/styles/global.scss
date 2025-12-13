@@ -1,6 +1,6 @@
 @use 'variables' as *;
 @use 'mixins' as *;
-
+@use 'animations';
 // CSS Custom Properties for Theming
 :root {
   // Default to dark theme
