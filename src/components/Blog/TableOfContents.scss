@@ -1,0 +1,82 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.toc {
+  position: sticky;
+  top: 100px;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+
+    svg {
+      color: var(--primary-color);
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin: 0.25rem 0;
+
+    button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      background: none;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+
+      &:hover {
+        color: var(--primary-color);
+        background: var(--hover-bg);
+      }
+    }
+
+    &--level-3 {
+      padding-left: 1rem;
+      
+      button {
+        font-size: 0.8125rem;
+      }
+    }
+
+    &--level-4 {
+      padding-left: 2rem;
+      
+      button {
+        font-size: 0.75rem;
+      }
+    }
+
+    &--active {
+      button {
+        color: var(--primary-color);
+        background: var(--primary-color-alpha);
+        font-weight: 500;
+      }
+    }
+  }
+}
