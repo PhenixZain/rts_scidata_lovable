@@ -5,18 +5,33 @@
   top: 100px;
   padding: 1.5rem;
   background: var(--card-bg);
-  border-radius: 12px;
+  border-radius: 16px;
   border: 1px solid var(--border-color);
   max-height: calc(100vh - 150px);
   overflow-y: auto;
 
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+  }
+
   &__header {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.625rem;
     font-weight: 600;
+    font-size: 0.9375rem;
     margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.875rem;
     border-bottom: 1px solid var(--border-color);
     color: var(--text-primary);
 
@@ -43,30 +58,34 @@
       color: var(--text-secondary);
       background: none;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s ease;
       line-height: 1.4;
+      border-left: 2px solid transparent;
 
       &:hover {
         color: var(--primary-color);
         background: var(--hover-bg);
+        border-left-color: var(--primary-color);
       }
     }
 
     &--level-3 {
-      padding-left: 1rem;
+      padding-left: 0.75rem;
       
       button {
         font-size: 0.8125rem;
+        padding-left: 1rem;
       }
     }
 
     &--level-4 {
-      padding-left: 2rem;
+      padding-left: 1.5rem;
       
       button {
         font-size: 0.75rem;
+        padding-left: 1.25rem;
       }
     }
 
@@ -75,6 +94,7 @@
         color: var(--primary-color);
         background: var(--primary-color-alpha);
         font-weight: 500;
+        border-left-color: var(--primary-color);
       }
     }
   }
