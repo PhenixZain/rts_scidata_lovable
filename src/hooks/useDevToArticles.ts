@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { DevToArticle } from '../types/devto';
 
-const DEVTO_USERNAME = 'PhenixZain';
+const DEVTO_USERNAME = 'phenixzain';
 const DEVTO_API_BASE = 'https://dev.to/api';
 
 export const useDevToArticles = () => {
