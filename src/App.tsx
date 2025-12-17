@@ -11,6 +11,8 @@ import Portfolio from "./pages/Portfolio/Portfolio";
 import Research from "./pages/Research/Research";
 import Blog from "./pages/Blog/Blog";
 import BlogPostPage from "./pages/Blog/BlogPostPage";
+import DevToBlog from "./pages/DevToBlog/DevToBlog";
+import DevToPostPage from "./pages/DevToBlog/DevToPostPage";
 import Contact from "./pages/Contact/Contact";
 import Privacy from "./pages/Legal/Privacy";
 import Terms from "./pages/Legal/Terms";
@@ -31,6 +33,8 @@ const App = () => (
             <Route path="/research" element={<Research />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/devto" element={<DevToBlog />} />
+            <Route path="/devto/:id" element={<DevToPostPage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
