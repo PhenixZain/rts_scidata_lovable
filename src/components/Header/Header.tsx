@@ -19,6 +19,7 @@ const navItems: NavItem[] = [
   { labelKey: 'portfolio', path: '/portfolio' },
   { labelKey: 'research', path: '/research' },
   { labelKey: 'blog', path: '/blog' },
+  { labelKey: 'devto', path: '/devto' },
 ];
 
 const Header: React.FC = () => {

@@ -9,6 +9,7 @@ export const nl: Translations = {
     portfolio: 'Portfolio',
     research: 'Onderzoek',
     blog: 'Blog',
+    devto: 'Dev.to',
     contact: 'Contact',
   },
 

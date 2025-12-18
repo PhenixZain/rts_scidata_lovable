@@ -9,6 +9,7 @@ export const fr: Translations = {
     portfolio: 'Portfolio',
     research: 'Recherche',
     blog: 'Blog',
+    devto: 'Dev.to',
     contact: 'Contactez-moi',
   },
 
