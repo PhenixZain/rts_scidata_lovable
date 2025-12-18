@@ -6,11 +6,15 @@ import { useDevToArticles } from '../../hooks/useDevToArticles';
 import { Search, Clock, Heart, MessageCircle, ExternalLink, Tag } from 'lucide-react';
 import './DevToBlog.scss';
 
+import { useTheme } from '../../context/ThemeContext';
+
 const DevToBlog = () => {
   const { t } = useLanguage();
   const { articles, loading, error } = useDevToArticles();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const { gradientMode } = useTheme();
+  const gradientClass = gradientMode === 'animated' ? 'gradient-text-animated' : 'gradient-text-static';
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -71,7 +75,7 @@ const DevToBlog = () => {
         <section className="devto-blog__hero">
           <div className="container">
             <span className="devto-blog__badge">Dev.to Articles</span>
-            <h1 className="devto-blog__title">My Dev.to Blog</h1>
+            <h1 className={gradientClass}>My Dev.to Blog</h1>
             <p className="devto-blog__subtitle">
               Sharing knowledge about data science, Python, automation, and scientific computing
             </p>
