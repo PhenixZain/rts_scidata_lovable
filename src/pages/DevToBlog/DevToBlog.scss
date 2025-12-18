@@ -1,3 +1,15 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero-title {
+  @include heading($font-size-4xl);
+  margin-bottom: $spacing-lg;
+
+  @include md {
+    font-size: $font-size-5xl;
+  }
+}
+
 .devto-blog {
   min-height: 100vh;
   padding-top: 80px;
