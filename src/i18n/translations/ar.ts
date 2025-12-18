@@ -9,6 +9,7 @@ export const ar: Translations = {
     portfolio: 'الأعمال',
     research: 'الأبحاث',
     blog: 'المدونة',
+    devto: 'Dev.to',
     contact: 'اتصل بي',
   },
 
