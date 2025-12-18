@@ -24,9 +24,9 @@
     text-decoration: none;
     
     &-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--gradient-primary);
+      width: 60px;
+      height: 60px;
+      // background: var(--gradient-primary);
       border-radius: $radius-lg;
       @include flex-center;
       
