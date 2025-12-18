@@ -1,6 +1,16 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+.hero-tag {
+  display: inline-block;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-md;
+}
+
 .hero-title {
   @include heading($font-size-4xl);
   margin-bottom: $spacing-lg;
@@ -74,17 +84,6 @@
       hsl(var(--muted)) 100%
     );
     border-bottom: 1px solid hsl(var(--border));
-  }
-
-  &__badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: hsl(var(--primary) / 0.1);
-    color: hsl(var(--primary));
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
   }
 
   &__title {
