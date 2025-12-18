@@ -76,7 +76,7 @@ const DevToBlog = () => {
           <div className="container">
             <span className="devto-blog__badge">Dev.to Articles</span>
             <h1 className="hero-title">My 
-              <span className={gradientClass} > Dev.to Blog</span>
+              <span className={gradientClass} > Dev.to Blogs</span>
             </h1>
             <p className="devto-blog__subtitle">
               Sharing knowledge about data science, Python, automation, and scientific computing
