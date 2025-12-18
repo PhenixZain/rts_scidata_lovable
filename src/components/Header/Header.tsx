@@ -5,6 +5,7 @@ import ThemeController from '../ThemeController/ThemeController';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import { useLanguage } from '../../context/LanguageContext';
 import './Header.scss';
+import LogoSVG from './LogoSVG';
 
 interface NavItem {
   labelKey: keyof typeof import('../../i18n/translations/en').en.nav;
@@ -32,7 +33,8 @@ const Header: React.FC = () => {
       <div className="header__container">
         <Link to="/" className="header__logo">
           <div className="header__logo-icon">
-            <Database />
+            {/* <Database /> */}
+            <LogoSVG />
           </div>
           <span className="header__logo-text">
             <span>SDMR</span>.pro
